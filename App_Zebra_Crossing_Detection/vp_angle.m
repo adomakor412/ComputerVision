@@ -5,7 +5,6 @@
 %% The Way, the Truth, and the Life
 %% 
 %% Name: Ronald Adomako and (Alex) Xingye Li
-%% ID: 16118977
 
 %% Read in two images 
 im = imread('zebra-crossing-3.jpg');
@@ -50,8 +49,16 @@ numer = [x1*y2-x2*y1;x3*y4-x4*y3];
 denom = [y2-y1,y4-y3;-(x2-x1),-(x4-x3)];
 P = numer/denom
 P  = P(3:4)
+vp_x = P(1)
+vp_y = P(2)
+
 display(P)
 
 %Angle
+dx = abs(size(disimg(2)/2 - vp_x)
+angRad = atan(dx/vp_y); %angle in radians
+
+save P.txt vp -ASCII;%x cartesian coordinates
+save angRad.txt angRad -ASCII; 
 
 %return, save VP and angle
